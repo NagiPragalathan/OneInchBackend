@@ -273,6 +273,9 @@ def token_price():
         traceback.print_exc()  # Print the full stack trace to the console
         return jsonify({"error": str(e)}), 500
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "UP"}), 200
 
 if __name__ == '__main__':
     app.run(port=3001, host='0.0.0.0')
